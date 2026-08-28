@@ -1,163 +1,251 @@
 /* =========================================================
-   Ariel Builds — waitlist page styles
-   Everything is here in one file on purpose. Easy to find,
-   easy to change. Start at :root to change the colors.
+   Ariel Builds — waitlist page
+   Built on the Ariel Builds Asset Library v1.
+
+   Color and type rules live in :root. Change them here and
+   they change everywhere.
+
+   Two accent rules from the brand guide, enforced below:
+     - Terracotta (#A94427) only on light grounds
+     - Clay (#F09A72) only on charcoal
+   Never both in the same block.
    ========================================================= */
 
-:root {
-  --ink:        #14202b;   /* main text */
-  --ink-soft:   #4a5c6b;   /* secondary text */
-  --paper:      #fbfaf7;   /* page background */
-  --card:       #ffffff;
-  --accent:     #1f7a8c;   /* teal — buttons, links */
-  --accent-dark:#155f6e;
-  --highlight:  #ffcf6b;   /* sticky-note yellow */
-  --line:       #e5e1d8;
-  --ok:         #1c7a4d;
-  --bad:        #b23b2e;
-  --radius:     14px;
-  --shadow:     0 1px 2px rgba(20,32,43,.05), 0 8px 24px rgba(20,32,43,.06);
-  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto,
-          "Helvetica Neue", Arial, sans-serif;
+:root{
+  /* core */
+  --charcoal:  #2C2C2A;   /* all text on light; the only dark ground */
+  --terracotta:#A94427;   /* accent on light only */
+  --clay:      #F09A72;   /* accent on charcoal only */
+
+  /* grounds and neutrals */
+  --paper:     #FAFAF8;
+  --clay-tint: #F2ECE7;
+  --stone:     #5C574F;
+  --line:      #E5E1DA;
+  --mute:      #9A948C;
+  --on-dark:   #A8A29A;
+
+  /* type */
+  --display: 'Archivo', Helvetica, Arial, sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --measure: 62ch;
 }
 
-* { box-sizing: border-box; }
+*{ box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html{ scroll-behavior: smooth; }
 
-body {
+body{
   margin: 0;
-  font-family: var(--font);
-  font-size: 17px;
-  line-height: 1.6;
-  color: var(--ink);
   background: var(--paper);
+  color: var(--charcoal);
+  font-family: var(--display);
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
 
+.shell,
+.site-header,
+.hero,
+.beliefs,
+.join-inner,
+.site-footer{
+  max-width: 1120px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---------- Shared type roles ---------- */
+.eyebrow{
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  margin: 0 0 22px;
+}
+
+.period{ color: var(--terracotta); }
+.period-clay{ color: var(--clay); }
+
 /* ---------- Header ---------- */
-.site-header {
-  padding: 24px 24px 0;
-  max-width: 900px;
-  margin: 0 auto;
+.site-header{
+  padding: 34px 28px 0;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 28px;
+  flex-wrap: wrap;
 }
-.wordmark {
-  font-weight: 700;
-  font-size: 20px;
-  letter-spacing: -.02em;
+.wordmark{
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -.035em;
+  color: var(--charcoal);
   text-decoration: none;
-  color: var(--ink);
 }
-.wordmark span { color: var(--accent); }
+.tagline{
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
 
 /* ---------- Hero ---------- */
-.hero {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 64px 24px 48px;
+.hero{
+  padding: 92px 28px 88px;
 }
-.eyebrow {
-  display: inline-block;
-  margin: 0 0 20px;
-  padding: 6px 14px;
-  background: var(--highlight);
-  border-radius: 999px;
-  font-size: 14px;
-  font-weight: 600;
-  transform: rotate(-1.2deg);
+.hero h1{
+  margin: 0 0 26px;
+  font-size: clamp(44px, 7.4vw, 92px);
+  font-weight: 800;
+  letter-spacing: -.045em;
+  line-height: 1.0;
+  max-width: 15ch;
+  text-wrap: balance;
 }
-.hero h1 {
-  margin: 0 0 20px;
-  font-size: clamp(34px, 6vw, 54px);
-  line-height: 1.1;
-  letter-spacing: -.025em;
-  max-width: 16ch;
-}
-.lede {
-  margin: 0 0 32px;
-  font-size: clamp(17px, 2.2vw, 20px);
-  color: var(--ink-soft);
-  max-width: 58ch;
+.lede{
+  margin: 0 0 40px;
+  font-size: clamp(17px, 1.5vw, 19px);
+  line-height: 1.6;
+  color: var(--stone);
+  max-width: var(--measure);
+  text-wrap: pretty;
 }
 
-/* ---------- Buttons ---------- */
-.btn {
+/* ---------- Button ---------- */
+.btn{
   display: inline-block;
-  padding: 14px 26px;
+  background: var(--terracotta);
+  color: var(--paper);
+  font-family: var(--display);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -.01em;
+  padding: 15px 30px;
   border: 0;
   border-radius: 999px;
-  font: inherit;
-  font-weight: 600;
   cursor: pointer;
   text-decoration: none;
-  transition: background .15s ease, transform .1s ease;
+  transition: background .15s ease;
 }
-.btn-primary { background: var(--accent); color: #fff; }
-.btn-primary:hover { background: var(--accent-dark); }
-.btn-primary:active { transform: translateY(1px); }
-.btn[disabled] { opacity: .55; cursor: not-allowed; }
+.btn:hover{ background: #8C3619; }
+.btn:focus-visible{ outline: 2px solid var(--charcoal); outline-offset: 3px; }
+.btn[disabled]{ opacity: .5; cursor: not-allowed; }
 
-/* ---------- Cards ---------- */
-.cards {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 24px 64px;
+/* ---------- Beliefs ---------- */
+.beliefs{
+  padding: 0 28px 96px;
   display: grid;
-  gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 0;
+  border-top: 2px solid var(--charcoal);
 }
-.card {
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 24px;
-  box-shadow: var(--shadow);
+.belief{
+  padding: 34px 34px 40px;
+  border-right: 1px solid var(--line);
 }
-.card h2 { margin: 0 0 8px; font-size: 19px; letter-spacing: -.01em; }
-.card p  { margin: 0; color: var(--ink-soft); font-size: 16px; }
+.belief:first-child{ padding-left: 0; }
+.belief:last-child{ border-right: 0; padding-right: 0; }
+.belief-label{
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  margin: 0 0 18px;
+}
+.belief h2{
+  margin: 0 0 10px;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -.02em;
+  line-height: 1.25;
+  max-width: 18ch;
+}
+.belief p{
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--stone);
+  max-width: 34ch;
+}
 
 /* ---------- Signup ---------- */
-.join {
-  max-width: 620px;
-  margin: 0 auto 80px;
-  padding: 40px 24px;
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
+.join{
+  background: var(--clay-tint);
+  padding: 88px 0 96px;
 }
-.join h2 { margin: 0 0 8px; font-size: 28px; letter-spacing: -.02em; }
-.join-sub { margin: 0 0 28px; color: var(--ink-soft); }
+.join-inner{
+  padding: 0 28px;
+}
+.join-inner form,
+.join-head,
+.join-sub{
+  max-width: 660px;
+}
+.join-head{
+  margin: 0 0 14px;
+  font-size: clamp(32px, 4.4vw, 46px);
+  font-weight: 800;
+  letter-spacing: -.038em;
+  line-height: 1.06;
+  text-wrap: balance;
+}
+.join-sub{
+  margin: 0 0 40px;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--stone);
+  max-width: 48ch;
+}
 
-.field { margin-bottom: 18px; }
-.field label {
+.field{ margin-bottom: 24px; }
+.field label{
   display: block;
-  margin-bottom: 6px;
+  margin-bottom: 9px;
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: -.01em;
 }
-.req { color: var(--bad); }
+.req{
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  margin-left: 6px;
+}
 
 input[type="text"],
 input[type="email"],
-textarea {
+textarea{
   width: 100%;
-  padding: 12px 14px;
-  font: inherit;
-  color: var(--ink);
+  padding: 14px 16px;
+  font-family: var(--display);
+  font-size: 16px;
+  color: var(--charcoal);
   background: var(--paper);
   border: 1px solid var(--line);
-  border-radius: 10px;
+  border-radius: 0;
   resize: vertical;
 }
-input:focus, textarea:focus {
-  outline: 2px solid var(--accent);
-  outline-offset: 1px;
-  background: #fff;
+input::placeholder, textarea::placeholder{ color: var(--mute); }
+input:focus, textarea:focus{
+  outline: 2px solid var(--terracotta);
+  outline-offset: -1px;
+  border-color: var(--terracotta);
 }
 
-/* honeypot — hidden from humans, visible to dumb bots */
-.hp {
+/* honeypot — off-screen for people, visible to simple bots */
+.hp{
   position: absolute;
   left: -9999px;
   width: 1px;
@@ -165,16 +253,51 @@ input:focus, textarea:focus {
   overflow: hidden;
 }
 
-.status { margin: 16px 0 0; min-height: 1.4em; font-size: 15px; font-weight: 500; }
-.status.ok  { color: var(--ok); }
-.status.bad { color: var(--bad); }
+.status{
+  margin: 20px 0 0;
+  min-height: 1.5em;
+  font-family: var(--mono);
+  font-size: 14px;
+  letter-spacing: .01em;
+}
+.status.ok { color: var(--terracotta); }
+.status.bad{ color: var(--charcoal); }
 
 /* ---------- Footer ---------- */
-.site-footer {
-  border-top: 1px solid var(--line);
-  padding: 28px 24px;
-  text-align: center;
-  color: var(--ink-soft);
-  font-size: 14px;
+.site-footer{
+  background: var(--charcoal);
+  color: var(--paper);
+  max-width: none;
+  padding: 52px 28px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: wrap;
 }
-.site-footer p { margin: 0; }
+.footer-mark{
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -.03em;
+  line-height: 1.05;
+}
+.footer-meta{
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: .1em;
+  line-height: 1.9;
+  color: var(--on-dark);
+  text-align: right;
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 720px){
+  .hero{ padding: 64px 22px 60px; }
+  .beliefs{ padding: 0 22px 68px; }
+  .belief{ border-right: 0; border-bottom: 1px solid var(--line); padding: 30px 0; }
+  .belief:last-child{ border-bottom: 0; }
+  .site-header{ padding: 26px 22px 0; }
+  .join-inner{ padding: 0 22px; }
+  .site-footer{ padding: 42px 22px; }
+  .footer-meta{ text-align: left; }
+}

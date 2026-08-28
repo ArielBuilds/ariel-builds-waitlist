@@ -5,83 +5,98 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ariel Builds — Helping organizations find a better way forward</title>
   <meta name="description" content="Ariel Builds helps organizations solve the right problems with the right solutions. Join the list.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
   <header class="site-header">
-    <a class="wordmark" href="#top">Ariel<span>Builds</span></a>
+    <a class="wordmark" href="#top">ARIEL BUILDS<span class="period">.</span></a>
+    <span class="tagline">Human-centered design &amp; organizational improvement</span>
   </header>
 
   <main id="top">
 
     <!-- ===== Hero ===== -->
     <section class="hero">
-      <p class="eyebrow">There has to be a better way.</p>
+      <p class="eyebrow">There has to be a better way</p>
       <h1>Helping organizations find a better way forward.</h1>
       <p class="lede">
         Sometimes the answer is AI. Sometimes it's better communication. Sometimes it's
         a process everyone stopped questioning years ago. My job isn't to sell you a
         solution — it's to help you find the right one.
       </p>
-      <a class="btn btn-primary" href="#join">Get on the list</a>
+      <a class="btn" href="#join">Get on the list</a>
     </section>
 
     <!-- ===== Three things ===== -->
-    <section class="cards">
-      <article class="card">
-        <h2>We ask first</h2>
-        <p>Every conversation starts with understanding what's actually happening, not what a vendor assumes is happening.</p>
+    <section class="beliefs">
+      <article class="belief">
+        <p class="belief-label">Ask first</p>
+        <h2>Understand before recommending</h2>
+        <p>Every conversation starts with what's actually happening, not what a vendor assumes is happening.</p>
       </article>
-      <article class="card">
-        <h2>We keep it simple</h2>
-        <p>Simple solutions usually beat complicated ones. If nothing new needs to be bought, that's a real answer.</p>
+      <article class="belief">
+        <p class="belief-label">Keep it simple</p>
+        <h2>Simple usually wins</h2>
+        <p>Complicated solutions rarely beat simple ones. If nothing new needs to be bought, that's a real answer.</p>
       </article>
-      <article class="card">
-        <h2>You decide</h2>
-        <p>You get the options, the trade-offs, and a place to start. No predetermined solution waiting at the end.</p>
+      <article class="belief">
+        <p class="belief-label">Your call</p>
+        <h2>Options, not a pitch</h2>
+        <p>You get the trade-offs and a place to start. No predetermined solution waiting at the end.</p>
       </article>
     </section>
 
     <!-- ===== Signup ===== -->
     <section class="join" id="join">
-      <h2>Join the list</h2>
-      <p class="join-sub">
-        One useful idea at a time — a question worth asking, a thing worth trying,
-        a better way someone found. Unsubscribe whenever.
-      </p>
+      <div class="join-inner">
+        <p class="eyebrow">Field notes</p>
+        <h2 class="join-head">One useful idea at a time.</h2>
+        <p class="join-sub">
+          A question worth asking, a thing worth trying, a better way someone found.
+          Unsubscribe whenever.
+        </p>
 
-      <form id="waitlist-form" novalidate>
-        <div class="field">
-          <label for="name">First name</label>
-          <input type="text" id="name" name="name" autocomplete="given-name" placeholder="Ariel">
-        </div>
+        <form id="waitlist-form" novalidate>
+          <div class="field">
+            <label for="name">First name</label>
+            <input type="text" id="name" name="name" autocomplete="given-name" placeholder="Ariel">
+          </div>
 
-        <div class="field">
-          <label for="email">Email <span class="req">*</span></label>
-          <input type="email" id="email" name="email" autocomplete="email" placeholder="you@company.com" required>
-        </div>
+          <div class="field">
+            <label for="email">Email <span class="req">required</span></label>
+            <input type="email" id="email" name="email" autocomplete="email" placeholder="you@company.com" required>
+          </div>
 
-        <div class="field">
-          <label for="headache">What's the "there has to be a better way" thing in your work right now?</label>
-          <textarea id="headache" name="headache" rows="3" placeholder="Optional — but it's the most useful thing you can tell me."></textarea>
-        </div>
+          <div class="field">
+            <label for="headache">What's the "there has to be a better way" thing in your work right now?</label>
+            <textarea id="headache" name="headache" rows="3" placeholder="Optional — but it's the most useful thing you can tell me."></textarea>
+          </div>
 
-        <!-- honeypot: hidden from people, catches simple bots -->
-        <div class="hp" aria-hidden="true">
-          <label for="company_website">Company website</label>
-          <input type="text" id="company_website" name="company_website" tabindex="-1" autocomplete="off">
-        </div>
+          <!-- honeypot: hidden from people, catches simple bots -->
+          <div class="hp" aria-hidden="true">
+            <label for="company_website">Company website</label>
+            <input type="text" id="company_website" name="company_website" tabindex="-1" autocomplete="off">
+          </div>
 
-        <button class="btn btn-primary" type="submit" id="submit-btn">Join the list</button>
-        <p class="status" id="status" role="status" aria-live="polite"></p>
-      </form>
+          <button class="btn" type="submit" id="submit-btn">Join the list</button>
+          <p class="status" id="status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
     </section>
 
   </main>
 
   <footer class="site-footer">
-    <p>&copy; <span id="year"></span> Ariel Builds. Built by hand, on purpose.</p>
+    <div class="footer-mark">ARIEL<br>BUILDS<span class="period-clay">.</span></div>
+    <div class="footer-meta">
+      &copy; <span id="year"></span> ARIEL BUILDS<br>
+      WHEN THERE'S A BETTER WAY, ARIEL BUILDS IT
+    </div>
   </footer>
 
   <!-- Supabase client, loaded from a CDN. No build step, no npm. -->
