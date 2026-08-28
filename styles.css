@@ -51,7 +51,6 @@ body{
 .site-header,
 .hero,
 .beliefs,
-.join-inner,
 .site-footer{
   max-width: 1120px;
   margin-left: auto;
@@ -177,35 +176,7 @@ body{
   max-width: 34ch;
 }
 
-/* ---------- Signup ---------- */
-.join{
-  background: var(--clay-tint);
-  padding: 88px 0 96px;
-}
-.join-inner{
-  padding: 0 28px;
-}
-.join-inner form,
-.join-head,
-.join-sub{
-  max-width: 660px;
-}
-.join-head{
-  margin: 0 0 14px;
-  font-size: clamp(32px, 4.4vw, 46px);
-  font-weight: 800;
-  letter-spacing: -.038em;
-  line-height: 1.06;
-  text-wrap: balance;
-}
-.join-sub{
-  margin: 0 0 40px;
-  font-size: 17px;
-  line-height: 1.6;
-  color: var(--stone);
-  max-width: 48ch;
-}
-
+/* ---------- Form fields (shared) ---------- */
 .field{ margin-bottom: 24px; }
 .field label{
   display: block;
@@ -254,14 +225,165 @@ input:focus, textarea:focus{
 }
 
 .status{
-  margin: 20px 0 0;
+  margin: 18px 0 0;
   min-height: 1.5em;
   font-family: var(--mono);
   font-size: 14px;
-  letter-spacing: .01em;
+  line-height: 1.5;
 }
 .status.ok { color: var(--terracotta); }
 .status.bad{ color: var(--charcoal); }
+/* ---------- Offer band (what a Discovery Session is) ---------- */
+.offer{
+  background: var(--charcoal);
+  color: var(--paper);
+  padding: 76px 0 80px;
+}
+.offer-inner{
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+.offer .eyebrow{ color: var(--clay); }
+.offer-head{
+  margin: 0 0 46px;
+  font-size: clamp(30px, 4.2vw, 46px);
+  font-weight: 800;
+  letter-spacing: -.038em;
+  line-height: 1.06;
+  color: var(--paper);
+  max-width: 20ch;
+  text-wrap: balance;
+}
+.offer-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 0;
+  border-top: 1px solid #3D3C39;
+}
+.offer-col{
+  padding: 28px 34px 0;
+  border-right: 1px solid #3D3C39;
+}
+.offer-col:first-child{ padding-left: 0; }
+.offer-col:last-child{ border-right: 0; padding-right: 0; }
+.offer-label{
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--clay);
+  margin: 0 0 14px;
+}
+.offer-col p:last-child{
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #C4BEB4;
+  max-width: 32ch;
+}
+
+/* ---------- Primary: Discovery Session form ---------- */
+.session{
+  background: var(--clay-tint);
+  padding: 88px 0 96px;
+}
+.session-inner{
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+.session-head{
+  margin: 0 0 14px;
+  font-size: clamp(32px, 4.6vw, 50px);
+  font-weight: 800;
+  letter-spacing: -.04em;
+  line-height: 1.04;
+  text-wrap: balance;
+}
+.session-sub{
+  margin: 0 0 44px;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--stone);
+  max-width: 46ch;
+}
+.session-inner form{ max-width: 760px; }
+.row{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+select{
+  width: 100%;
+  padding: 14px 16px;
+  font-family: var(--display);
+  font-size: 16px;
+  color: var(--charcoal);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 0;
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, var(--stone) 50%),
+                    linear-gradient(135deg, var(--stone) 50%, transparent 50%);
+  background-position: calc(100% - 20px) 50%, calc(100% - 14px) 50%;
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+}
+select:focus{
+  outline: 2px solid var(--terracotta);
+  outline-offset: -1px;
+  border-color: var(--terracotta);
+}
+
+/* ---------- Secondary: Field Notes ---------- */
+.notes{
+  background: var(--paper);
+  padding: 72px 0 84px;
+}
+.notes-inner{
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 40px 28px 0;
+  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 56px;
+  align-items: start;
+}
+.notes-label{
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--mute);
+  margin: 0 0 14px;
+}
+.notes-head{
+  margin: 0 0 10px;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -.025em;
+  line-height: 1.2;
+}
+.notes-sub{
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--stone);
+  max-width: 44ch;
+}
+.notes-form .field{ margin-bottom: 16px; }
+.btn-quiet{
+  background: transparent;
+  color: var(--terracotta);
+  border: 1.5px solid var(--terracotta);
+  padding: 13px 26px;
+}
+.btn-quiet:hover{ background: var(--terracotta); color: var(--paper); }
 
 /* ---------- Footer ---------- */
 .site-footer{
@@ -297,7 +419,13 @@ input:focus, textarea:focus{
   .belief{ border-right: 0; border-bottom: 1px solid var(--line); padding: 30px 0; }
   .belief:last-child{ border-bottom: 0; }
   .site-header{ padding: 26px 22px 0; }
-  .join-inner{ padding: 0 22px; }
   .site-footer{ padding: 42px 22px; }
+  .offer{ padding: 56px 0 60px; }
+  .offer-inner, .session-inner, .notes-inner{ padding-left: 22px; padding-right: 22px; }
+  .offer-col{ border-right: 0; border-bottom: 1px solid #3D3C39; padding: 26px 0; }
+  .offer-col:last-child{ border-bottom: 0; }
+  .session{ padding: 60px 0 68px; }
+  .row{ grid-template-columns: 1fr; gap: 0; }
+  .notes-inner{ grid-template-columns: 1fr; gap: 30px; }
   .footer-meta{ text-align: left; }
 }

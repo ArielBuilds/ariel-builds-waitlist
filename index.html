@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ariel Builds — Helping organizations find a better way forward</title>
-  <meta name="description" content="Ariel Builds helps organizations solve the right problems with the right solutions. Join the list.">
+  <meta name="description" content="Ninety minutes on one real problem. Ariel Builds helps organizations solve the right problems with the right solutions.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,10 +29,32 @@
         a process everyone stopped questioning years ago. My job isn't to sell you a
         solution — it's to help you find the right one.
       </p>
-      <a class="btn" href="#join">Get on the list</a>
+      <a class="btn" href="#session">Book a Discovery Session</a>
     </section>
 
-    <!-- ===== Three things ===== -->
+    <!-- ===== What it is ===== -->
+    <section class="offer">
+      <div class="offer-inner">
+        <p class="eyebrow">Better Way Discovery Session</p>
+        <h2 class="offer-head">Ninety minutes on one real problem.</h2>
+        <div class="offer-grid">
+          <div class="offer-col">
+            <p class="offer-label">What happens</p>
+            <p>We take the thing that's been bothering you and pull it apart. I ask a lot of questions. You do most of the talking.</p>
+          </div>
+          <div class="offer-col">
+            <p class="offer-label">What you leave with</p>
+            <p>A clearer picture of what's actually broken, and at least one thing you can act on this week.</p>
+          </div>
+          <div class="offer-col">
+            <p class="offer-label">What it isn't</p>
+            <p>No deck. No pitch. No proposal at the end unless you ask for one.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Beliefs ===== -->
     <section class="beliefs">
       <article class="belief">
         <p class="belief-label">Ask first</p>
@@ -51,39 +73,87 @@
       </article>
     </section>
 
-    <!-- ===== Signup ===== -->
-    <section class="join" id="join">
-      <div class="join-inner">
-        <p class="eyebrow">Field notes</p>
-        <h2 class="join-head">One useful idea at a time.</h2>
-        <p class="join-sub">
-          A question worth asking, a thing worth trying, a better way someone found.
-          Unsubscribe whenever.
+    <!-- ===== PRIMARY: Discovery Session request ===== -->
+    <section class="session" id="session">
+      <div class="session-inner">
+        <p class="eyebrow">Request a session</p>
+        <h2 class="session-head">Tell me what's not working.</h2>
+        <p class="session-sub">
+          I read every one of these myself and reply within two business days.
+          Free, and there's nothing to buy at the end of it.
         </p>
 
-        <form id="waitlist-form" novalidate>
-          <div class="field">
-            <label for="name">First name</label>
-            <input type="text" id="name" name="name" autocomplete="given-name" placeholder="Ariel">
+        <form id="session-form" novalidate>
+          <div class="row">
+            <div class="field">
+              <label for="s-name">Your name <span class="req">required</span></label>
+              <input type="text" id="s-name" autocomplete="name" placeholder="Ariel Steinberg" required>
+            </div>
+            <div class="field">
+              <label for="s-email">Email <span class="req">required</span></label>
+              <input type="email" id="s-email" autocomplete="email" placeholder="you@company.com" required>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label for="s-org">Organization</label>
+              <input type="text" id="s-org" autocomplete="organization" placeholder="Where you work">
+            </div>
+            <div class="field">
+              <label for="s-role">Your role</label>
+              <input type="text" id="s-role" autocomplete="organization-title" placeholder="What you do there">
+            </div>
           </div>
 
           <div class="field">
-            <label for="email">Email <span class="req">required</span></label>
-            <input type="email" id="email" name="email" autocomplete="email" placeholder="you@company.com" required>
+            <label for="s-problem">What's the "there has to be a better way" thing? <span class="req">required</span></label>
+            <textarea id="s-problem" rows="4" placeholder="One or two sentences is plenty. The messier it sounds, the more useful it usually is." required></textarea>
           </div>
 
           <div class="field">
-            <label for="headache">What's the "there has to be a better way" thing in your work right now?</label>
-            <textarea id="headache" name="headache" rows="3" placeholder="Optional — but it's the most useful thing you can tell me."></textarea>
+            <label for="s-timing">How soon does this need to change?</label>
+            <select id="s-timing">
+              <option value="">Pick one</option>
+              <option value="urgent">It's on fire — weeks</option>
+              <option value="quarter">This quarter</option>
+              <option value="year">Sometime this year</option>
+              <option value="exploring">Just exploring</option>
+            </select>
           </div>
 
-          <!-- honeypot: hidden from people, catches simple bots -->
+          <div class="hp" aria-hidden="true">
+            <label for="s-website">Company website</label>
+            <input type="text" id="s-website" tabindex="-1" autocomplete="off">
+          </div>
+
+          <button class="btn" type="submit" id="session-btn">Request a Discovery Session</button>
+          <p class="status" id="session-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- ===== SECONDARY: Field notes list ===== -->
+    <section class="notes" id="notes">
+      <div class="notes-inner">
+        <div class="notes-copy">
+          <p class="notes-label">Not ready for that?</p>
+          <h2 class="notes-head">Get Field Notes instead.</h2>
+          <p class="notes-sub">One useful idea at a time — a question worth asking, a thing worth trying, a better way someone found. Unsubscribe whenever.</p>
+        </div>
+
+        <form id="waitlist-form" class="notes-form" novalidate>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" autocomplete="email" placeholder="you@company.com" required>
+          </div>
+
           <div class="hp" aria-hidden="true">
             <label for="company_website">Company website</label>
-            <input type="text" id="company_website" name="company_website" tabindex="-1" autocomplete="off">
+            <input type="text" id="company_website" tabindex="-1" autocomplete="off">
           </div>
 
-          <button class="btn" type="submit" id="submit-btn">Join the list</button>
+          <button class="btn btn-quiet" type="submit" id="submit-btn">Join the list</button>
           <p class="status" id="status" role="status" aria-live="polite"></p>
         </form>
       </div>
@@ -99,7 +169,6 @@
     </div>
   </footer>
 
-  <!-- Supabase client, loaded from a CDN. No build step, no npm. -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
   <script src="config.js"></script>
   <script src="app.js"></script>

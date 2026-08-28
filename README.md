@@ -1,43 +1,44 @@
-# Ariel Builds — Waitlist Site
+# Ariel Builds — Site
 
-A one-page site with an email signup form that saves to Supabase.
+One page, two asks, both saving to Supabase.
 No build step, no npm, no framework. Open `index.html` in a browser and it runs.
+
+## The two asks, ranked
+
+1. **Discovery Session request** — the primary CTA. Saves to `discovery_requests`.
+2. **Field Notes email list** — the quiet secondary option. Saves to `waitlist`.
 
 ## Files
 
 | File | What it does |
 |---|---|
-| `index.html` | The page itself — all the words and the form |
-| `styles.css` | How it looks. Colors live at the top under `:root` |
-| `app.js` | What happens when someone submits the form |
-| `config.js` | Your two Supabase keys go here |
-| `supabase-setup.sql` | Run this once in Supabase to create the table |
+| `index.html` | The page — all the words and both forms |
+| `styles.css` | How it looks. Every color and font is at the top under `:root` |
+| `app.js` | What happens when either form is submitted |
+| `config.js` | The two Supabase connection values |
+| `supabase-setup.sql` | Run once in Supabase to create both tables |
 
-## Setup (short version)
+## Design
 
-1. Create a Supabase project.
-2. SQL Editor → paste `supabase-setup.sql` → Run.
-3. Settings → API → copy the **Project URL** and the **anon public** key.
-4. Paste both into `config.js`.
-5. Push to GitHub, connect the repo to Netlify or Vercel.
+Built on the **Ariel Builds Asset Library v1**.
 
-The long version with screenshots-worth of detail is in the runbook Claude gave you.
+- Archivo for everything read; IBM Plex Mono for labels only, uppercase and tracked
+- Terracotta `#A94427` on light grounds, clay `#F09A72` on charcoal, never both in one block
+- The wordmark is `ARIEL BUILDS.` — only the period takes the accent color
 
-## Running it on your own machine
+Change any token in `:root` and it changes everywhere.
 
-Double-clicking `index.html` works for looking at it, but the form needs a
-real web address to talk to Supabase. To run a tiny local server:
+## Running it locally
 
 ```
-cd ariel-builds-waitlist
 python3 -m http.server 8000
 ```
 
 Then open http://localhost:8000
 
-## Reading your signups
+## Reading submissions
 
-Supabase dashboard → Table Editor → `waitlist`.
+Supabase dashboard → Table Editor → `discovery_requests` or `waitlist`.
 
-The public can add rows but cannot read them — that's what the Row Level
-Security policy in the SQL file is doing.
+The public can add rows but cannot read them. That's the Row Level Security
+policy plus the table grants in `supabase-setup.sql` — both are required.
